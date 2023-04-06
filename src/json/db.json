@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "edificio": "London",
+    "locador": "Biopark",
+    "imagem": "/imagens/edificio1.jpg",
+    "apartamentos": [
+      {
+        "numero": 1,
+        "locatario": "Sergio",
+        "valor": "R$ 450,00"
+      },
+      {
+        "numero": 2,
+        "locatario": "Disponivel",
+        "valor": "R$ 450,00"
+      },
+      {
+        "numero": 3,
+        "locatario": "Disponivel",
+        "valor": "R$ 450,00"
+      }
+    ]
+  }
+]
