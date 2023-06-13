@@ -4,10 +4,10 @@ import { Conteudo } from "../../componentes/Conteudo"
 import { Titulo } from '../../componentes/Titulo'
 
 const CadastrarContainer = styled.section`
+    background-color: #d2cbcb;
     width: 90%;
     margin: 4rem auto 0 auto;
     text-align: center;
-    background-color: gray;
     border-radius: 16px;
     padding: 2rem 0;
     display: flex;
@@ -39,7 +39,7 @@ export default function Cadastrar() {
     const navigate = useNavigate()
     return (
         <>
-        <Conteudo margin="6rem auto 0 auto" height="75vh">
+        <Conteudo margin="6rem auto 0 auto" height="69vh">
             <CadastrarContainer>
                 <Titulo size="1.5rem" color="#fff">Você deseja:</Titulo>
                 <button onClick={() => navigate("/cadastrar/edificio")}>Cadastrar Edificio</button><br />

@@ -91,46 +91,45 @@ const BotaoVoltar = styled.button`
 
 
 export default function Apartamentos() {
-    const { edificio, setEdificio } = useContext(EdificioContext)
-    const [loading, setLoading] = useState(false)
-    
-    const edificioRecuperadoLocalStorage = localStorage.getItem("edificio")
-    
-    useEffect(() => {
-        if(edificioRecuperadoLocalStorage && loading === false){
-            setEdificio(JSON.parse(edificioRecuperadoLocalStorage))
-            setLoading(true)
-        }
-    }, [])
+    const { edificio, setEdificioSelecionado } = useContext(EdificioContext)
 
     const params = useParams()
     const navigate = useNavigate()
-    const idEdificio = params.id
-    const edificioClicado = edificio.find((edif) => edif.id === Number(idEdificio))
 
-    const apartamentosDoEdificio = edificioClicado.apartamentos
+    const edificioClicado = edificio.filter((item) => {
+        return item.id === Number(params.id)
+    })
 
+    const apartamentos = edificioClicado.map((item) => item.apartamentos)
+
+    function navegarParaApartamento(edif){
+        navigate(`/edificio/${params.id}/apartamento/${edif.numero}`)
+        setEdificioSelecionado(edif)
+    }
+    
     return (
         <Conteudo margin="2rem auto">
             <Edificio>
-                <Titulo size="1.5rem" padding="0">Edificio: {edificioClicado.edificio}</Titulo>
-                <h3>Locador: {edificioClicado.locador}</h3>
+                {edificioClicado.map((ed, index) => (
+                    <div key={index}>
+                        <Titulo size="1.5rem" padding="0">Edificio: {ed.edificio}</Titulo>
+                        <h3>Locador: {ed.locador}</h3>
+                    </div>
+                ))}
             </Edificio>
 
             <ApartamentosContainer>
-                {apartamentosDoEdificio === undefined && <Titulo size="1.2rem">Edificio sem apartamentos no momento</Titulo>}
-                {apartamentosDoEdificio && apartamentosDoEdificio.map((edif) => {
-                    return (
-                        <Apartamento key={edif.numero}>
+                {apartamentos === undefined && <Titulo size="1.2rem">Edificio sem apartamentos no momento</Titulo>}
+                {apartamentos.length && apartamentos[0].map((edif, index) => (
+                        <Apartamento key={index}>
                             <h4>Apartamento: {edif.numero}</h4>
                             <h4>Locatario: {edif.locatario}</h4>
                             {edif.locatario === "Disponivel" && <h4>Valor: {edif.valor}</h4>}
-                            {edif.locatario === "Disponivel" && <button onClick={() => navigate(`/apartamento/${edif.numero}`)}>Alugar agora</button>}
+                            {edif.locatario === "Disponivel" && <button onClick={() => navegarParaApartamento(edif)}>Alugar agora</button>}
                         </Apartamento>
-                    )
-                })}
+                ))}
             </ApartamentosContainer>
-            <BotaoVoltar onClick={() => navigate(-1)}>Voltar</BotaoVoltar>
+            <BotaoVoltar onClick={() => navigate('/')}>Voltar</BotaoVoltar>
         </Conteudo>
     )
 }

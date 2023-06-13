@@ -24,7 +24,7 @@ function App() {
               <Route index element={<Inicio />} />
               <Route path="edificios" element={<PaginaEdificios />} />
               <Route path="edificio/:id" element={<Apartamentos />} />
-              <Route path="apartamento/:id" element={<Formulario />} />
+              <Route path="edificio/:id/apartamento/:idApartamento" element={<Formulario />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastrar" element={<Cadastrar />} />
               <Route path="/cadastrar/edificio" element={<CadastrarEdificio />} />

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import edificios from '../json/db.json'
 
 export const EdificioContext = createContext();
@@ -10,7 +10,19 @@ export const EdificioProvider = ({ children }) => {
     const [idEdificio, setIdEdificio] = useState("")
     const [edificio, setEdificio] = useState(edificios)
     const [dadosFormulario, setDadosFormulario] = useState([])
-    const [edificioSelecionado, setEdificioSelecionado] = useState({})
+    const [edificioClicado, setEdificioSelecionado] = useState({})
+
+    // const [loading, setLoading] = useState(false)
+    
+    const edificioRecuperadoLocalStorage = localStorage.getItem("edificio")
+    
+    useEffect(() => {
+        if(edificioRecuperadoLocalStorage){
+            const edificioRecuperadoLocalStorageConvertido = JSON.parse(edificioRecuperadoLocalStorage)
+            setEdificio(edificioRecuperadoLocalStorageConvertido)
+            // setLoading(true)
+        }
+    }, [])
 
     return (
         <EdificioContext.Provider value={{
@@ -24,7 +36,7 @@ export const EdificioProvider = ({ children }) => {
             setIdEdificio,
             dadosFormulario,
             setDadosFormulario,
-            edificioSelecionado,
+            edificioClicado,
             setEdificioSelecionado
         }}>
             {children}

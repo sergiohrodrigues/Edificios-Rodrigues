@@ -80,16 +80,13 @@ export default function Pesquisa() {
     return (
         <PesquisaContainer>
             <h4>Pesquise aqui o nome do Edificio</h4>
-            <input type="text" placeholder="Digite o nome do edificio" onBlur={(event) => {
+            <input type="search" placeholder="Digite o nome do edificio" onChange={(event) => {
                 const textoDigitado = event.target.value
                 if (textoDigitado !== "") {
                     const resultadoPesquisa = edificio.filter((ed) => ed.edificio.toUpperCase().includes(textoDigitado.toUpperCase()))
                     setEdificioPesquisado(resultadoPesquisa)
                 }
-
-                document.querySelector("input").value = ""
             }} />
-            {/* <button onClick={pesquisaEdificio}>Pesquisa</button> */}
             <EdificiosPesquisados>
                 {edificioPesquisado && edificioPesquisado.map((item, index) => (
                     <EdificioPesquisadoContainer key={index}>

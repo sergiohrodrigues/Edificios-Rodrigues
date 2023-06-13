@@ -6,10 +6,10 @@ import { Titulo } from '../../componentes/Titulo'
 import { Conteudo } from '../../componentes/Conteudo'
 
 const Form = styled.form`
+    background-color: #d2cbcb;
     width: 90%;
     margin: 5rem auto 0 auto;
     text-align: center;
-    background-color: grey;
     border-radius: 1rem;
     padding: 2rem 0;
     label{
@@ -93,7 +93,7 @@ export default function CadastrarEdificio() {
 
     return (
         <>
-        <Conteudo height="75vh">
+        <Conteudo height="70vh">
             <Form onSubmit={(e) => Cadastrar(e)}>
                 <Titulo size="1.5rem" color="#fff">Nome do Edificio</Titulo>
                     <input onChange={(event) => setNome(event.target.value)} id="nome" placeholder='Digite o nome do Edificio' />

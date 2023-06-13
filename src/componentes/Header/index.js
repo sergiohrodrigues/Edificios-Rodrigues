@@ -50,7 +50,8 @@ const NavegacaoLista = styled.ul`
     right: 0;
     a{
         color: #fff;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        text-align: center;
     }
     @media screen and (min-width: 768px){
         width: auto;
@@ -60,6 +61,9 @@ const NavegacaoLista = styled.ul`
         flex-direction: row;
         position: static;
         padding: 0;
+        a{
+            color: #000;
+        }
     }
         a:hover{
         text-decoration: underline;
@@ -78,7 +82,7 @@ export default function Header() {
             rota: 'edificios'
         },
         {
-            label: 'Sou Locador',
+            label: 'Cadastrar edificio/apartamentos',
             rota: 'login'
         }
     ]

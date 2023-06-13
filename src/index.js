@@ -10,7 +10,7 @@ export const GlobalStye = createGlobalStyle`
   }
   
   body {
-    background: linear-gradient(rgb(173, 173, 173), gray);
+    background-color: #fff;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

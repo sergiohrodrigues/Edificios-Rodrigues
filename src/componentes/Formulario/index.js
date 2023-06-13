@@ -46,7 +46,7 @@ const FormularioContainer = styled.form`
 `
 
 export default function Formulario() {
-    const { edificio, setEdificio, dadosFormulario, setDadosFormulario, edificioSelecionado } = useContext(EdificioContext)
+    const { edificio, setEdificio, setDadosFormulario } = useContext(EdificioContext)
     const navigate = useNavigate()
     const params = useParams()
 
@@ -55,49 +55,55 @@ export default function Formulario() {
     const [dataNasc, setDataNasc] = useState("")
     const [cpf, setCPF] = useState("")
     const [email, setEmail] = useState("")
-    const [pagamento, setPatamento] = useState("")
-
-    const edificioEApartamentoSelecionado = edificioSelecionado.apartamentos[params.id - 1]
-
-    
-    // const EdificioJaExistente = edificio.find((ed) => ed.edificio === edificioSelecionado.edificio)
-    // EdificioJaExistente.edificio = "Sergio Edificios"
-    // console.log(edificioEApartamentoSelecionado.valor)
+    const [pagamento, setPagamento] = useState("")
     
     function enviarDados(event) {
         event.preventDefault()
-        const select = document.querySelector("#select")
-        const indice = select.selectedIndex
-        const selectSelecionado = select[indice].text
 
-        const dados = {
-            edificio: edificioSelecionado.edificio,
-            apartamento: Number(params.id),
-            nome: nome,
-            sobrenome: sobrenome,
-            dataNasc: dataNasc,
-            cpf: cpf,
-            email: email,
-            pagamento: selectSelecionado
+        const inputs = document.querySelectorAll('#input')
+        const arrayInputs = Array.from(inputs)
+
+        const todosInputs = arrayInputs.filter((item) => {
+            if(item.value !== ''){
+                return true
+            } else {
+                return false
+            }
+        })
+
+        if(todosInputs.length === inputs.length){
+            const dados = {
+                apartamento: Number(params.id),
+                nome: nome,
+                sobrenome: sobrenome,
+                dataNasc: dataNasc,
+                cpf: cpf,
+                email: email,
+                pagamento: pagamento
+            }
+            
+            document.querySelector("#sucess").innerHTML = "Apartamento alugado com sucesso!"
+    
+            document.querySelectorAll("input").forEach((inpt) => {
+                inpt.value = ""
+                setPagamento('')
+            })
+
+            setDadosFormulario(dados)
+            console.log(dados)
+        } else {
+            alert('Preencha todos os campos por favor')
         }
 
-        // setDadosFormulario(dados)
-        // edificioEApartamentoSelecionado.locatario = nome
-
-        // setEdificio([...edificio, edificioSelecionado])
-        
-        document.querySelector("#sucess").innerHTML = "Dados enviados com sucesso!"
-
-        document.querySelectorAll("input").forEach((inpt) => {
-            inpt.value = ""
-        })
-        
-        console.log(dados)
     }
+
+    const edificioSelecionado = edificio.filter((item) => item.id === Number(params.id))
+
+    const apartamentoSelecionado = edificioSelecionado[0].apartamentos[params.idApartamento - 1]
 
     return (
         <Conteudo align="left" height="80vh">
-            <FormularioContainer action="" onSubmit={enviarDados}>
+            <FormularioContainer action="">
                 <Titulo size="1.3rem" padding="0" margin="1rem 0 1rem 0">Preencha esse formulário para alugar seu apartamento.</Titulo>
                 <fieldset>
                     <legend>Nome</legend>
@@ -121,21 +127,21 @@ export default function Formulario() {
                 </fieldset>
                 <fieldset>
                     <legend>Valor</legend>
-                    <span>{edificioEApartamentoSelecionado.valor}</span>
+                    <span>{apartamentoSelecionado.length !== 0 && apartamentoSelecionado.valor}</span>
                 </fieldset>
                 <fieldset>
                     <legend>Pagamento</legend>
-                    <select name="" id="select" >
+                    <select name="" id="input" value={pagamento} onChange={e => setPagamento(e.target.value)}>
                         <option value=""></option>
-                        <option value="Débito">Cartão de Débito</option>
+                        <option value="Debito">Cartão de Débito</option>
                         <option value="Credito">Cartão de Credito</option>
                         <option value="Pix">Pix</option>
                         <option value="Outro">Outro</option>
                     </select>
                 </fieldset>
                 <p id="sucess"></p>
-                <button type="submit">Confirmar</button>
-                <button type="submit" onClick={() => navigate(-1)}>Voltar</button>
+                <button onClick={enviarDados}>Confirmar</button>
+                <button onClick={() => navigate(`/edificio/${params.id}`)}>Voltar</button>
             </FormularioContainer>
         </Conteudo>
     )

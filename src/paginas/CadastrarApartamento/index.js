@@ -7,7 +7,7 @@ const Form = styled.form`
     width: 80%;
     margin: 5.5rem auto;
     text-align: left;
-    background-color: rgb(176, 176, 176);
+    background-color: #d2cbcb;
     padding: 1rem;
     label{
         font-size: 1.3rem;
@@ -35,6 +35,12 @@ const Form = styled.form`
     p{
         font-size: 0.8rem;
         color: green;
+    }
+    @media screen and (min-width: 768px){
+        width: 80%;
+    }
+    @media screen and (min-width: 1024px){
+        width: 50%;
     }
 `
 

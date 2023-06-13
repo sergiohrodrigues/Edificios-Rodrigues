@@ -4,7 +4,7 @@ import { Conteudo } from "../../componentes/Conteudo"
 import { Titulo } from "../../componentes/Titulo"
 
 const Form = styled.form`
-    background-color: #fff;
+    background-color: #d2cbcb;
     padding: 1rem 0;
     border-radius: 0.5rem;
     input{
@@ -64,7 +64,7 @@ export default function Login() {
 
     return (
         <>
-            <Conteudo margin="6rem auto 0 auto" height="75vh">
+            <Conteudo margin="6rem auto 0 auto" height="69vh">
                 <Form onSubmit={(event) => entrar(event)}>
                 <Titulo size="1.1rem">Por favor entre com seu login</Titulo>
                     <input type="email" placeholder="Digite seu usuario ou e-mail" required />
