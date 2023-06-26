@@ -35,7 +35,7 @@ Clicando em "Cadastrar Apartamentos" escolha o seu edificio criado, coloque a qu
 ![Captura de Tela (391)](https://github.com/sergiohrodrigues/Edificios-Rodrigues/assets/86135798/0cc7b632-7d9f-449a-8a4a-41445e41424f)
 
 
-#### Mais pra frente pretendo fazer mais implementações, como realmente alugar o apartamento, quando a pessoa preencher o formulario o nome dela ir para o apartamento.. adicionar um login verdadeiro para cada usuário, e muito mais..
+#### Observações: pretendo fazer mais implementações, como realmente alugar o apartamento, quando a pessoa preencher o formulario o nome dela ir para o apartamento.. adicionar um login verdadeiro para cada usuário, e muito mais..
 
 
 #### E é isso, espero que gostem a abaixo vou deixar o link para darem uma olhada..
