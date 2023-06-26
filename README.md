@@ -18,10 +18,25 @@ Clicando no botão alugar apartamento voce entrará no edificio e mostrará os a
 ![Captura de Tela (387)](https://github.com/sergiohrodrigues/Edificios-Rodrigues/assets/86135798/215bbbcf-3313-4527-b114-44269739218d)<br/><br/>
 ![Captura de Tela (388)](https://github.com/sergiohrodrigues/Edificios-Rodrigues/assets/86135798/b8923887-0d44-477d-8230-87ce003308a5)
 
-Para criar um edificio novo, aperte em voltar e na tela iniciao tem um botao Locador, com fundo vermelho, clicando, voce efetuará sue login, no momento pode ser um ficticio mesmo com e-mail e qualquer senha, e voce escolherá a opção de cadastrar edificio, depois só escolher um nome para o Edificio e apertar em cadastrar, voltando na ela inicial voce repara que já vai ter adicionado o seu Edificio, agora falta adicionar os apartamentos, apertando em Locador denovo, efetuar o login, escolha a opção Cadastrar Apartamentos, escolha o seu edificio criado e adicionr quantos apartamentos desejar, e voltando no inicio em apartamentos Disponivveis abaixo da imagem do edificio já aparecerá o  numero de apartamentos disponiveis.
 
-Clicando em alugar apartamento voce verá quais apartamentos tem disponivel e quais estão alugados
+## Cadastrar Edificio/Apartamento
+Para criar um edificio novo, na tela inicial tem um botao Cadastrar edificio/apartamentos no topo da página, clicando, voce efetuará um login, no momento pode ser um ficticio mesmo com e-mail e qualquer senha, e voce terá duas opções, "Cadastrar edificio" e "Cadastrar Apartamentos", no momento para adicionar apartamentos precisa existir o Edificio, mas em breve colocarei tudo junto.<br/><br/>
+![Captura de Tela (389)](https://github.com/sergiohrodrigues/Edificios-Rodrigues/assets/86135798/7ec09182-d36f-4fd4-94fa-8bdbca8c4b70)
 
-Como eu disse no momento só está dando pra cadastrar o edificio e os apartamentos, mas pretende levar esse projeto mais pra frente adicionando mais funcionalidades, como adicionar imagem do edificio, alugar apartamento, estilizar, etc..
 
-E é isso, espero que gostem.
+## "Cadastrando Edificio"
+Clicando em "Cadastrar Edificio" depois só escolher um nome para o Edificio, se quiser adicionar uma imagem com link, pode adicionar, se nao colocar ele enviará uma imagem padrão para colocar..<br/></br>
+![Captura de Tela (390)](https://github.com/sergiohrodrigues/Edificios-Rodrigues/assets/86135798/6e9c9837-f264-4dfb-b089-c41b80050f5d)
+#### Obs: Voltando na ela inicial voce verá que já vai ter adicionado o seu Edificio, só que vai estar com 0 apartamentos, agora falta adicionar os apartamentos..
+
+
+## "Cadastrando Apartamentos"
+Clicando em "Cadastrar Apartamentos" escolha o seu edificio criado, coloque a quantidade de apartamentos desejada, e insira o valor dos apartamentos também, e voltando no inicio em "apartamentos Disponivveis" abaixo da imagem do edificio já aparecerá o  numero de apartamentos disponiveis..<br/><br/>
+![Captura de Tela (391)](https://github.com/sergiohrodrigues/Edificios-Rodrigues/assets/86135798/0cc7b632-7d9f-449a-8a4a-41445e41424f)
+
+
+#### Mais pra frente pretendo fazer mais implementações, como realmente alugar o apartamento, quando a pessoa preencher o formulario o nome dela ir para o apartamento.. adicionar um login verdadeiro para cada usuário, e muito mais..
+
+
+###### E é isso, espero que gostem a abaixo vou deixar o link para darem uma olhada..
+[Deploy Edificios Rodrigues](https://edificios-rodrigues.vercel.app)
